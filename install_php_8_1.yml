@@ -1,0 +1,20 @@
+---
+- name: Install PHP 8.1
+  hosts: servers
+  become: yes
+
+  tasks:
+
+    - name: Install PHP repository
+      apt_repository:
+        repo: ppa:ondrej/php
+        state: present
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install PHP 8.1
+      apt:
+        name: php8.1
+        state: present
