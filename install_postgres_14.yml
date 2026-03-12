@@ -1,0 +1,15 @@
+---
+- name: Install PostgreSQL 14
+  hosts: servers
+  become: yes
+
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install PostgreSQL 14
+      apt:
+        name: postgresql-14
+        state: present
